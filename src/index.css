@@ -39,4 +39,3 @@
   .tablink.active { @apply bg-white border-b-white; }
   .tab-content { @apply p-4 border border-slate-200 rounded-b-md bg-white; }
 }
-// sprint03-marker
