@@ -12,3 +12,4 @@
 - feat: MemberDetail com useParams
 - chore: README com critérios e estrutura
 - chore: scripts prepare:repo (win/unix)
+- refactor: mapeamento classes Sprint 02 → Tailwind
