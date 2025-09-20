@@ -11,3 +11,4 @@
 - feat: checklist com useState + useNavigate
 - feat: MemberDetail com useParams
 - chore: README com critérios e estrutura
+- chore: scripts prepare:repo (win/unix)
