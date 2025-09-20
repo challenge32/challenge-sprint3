@@ -8,3 +8,4 @@
 - feat: acessibilidade (skip-link, aria, foco)
 - feat: responsividade Tailwind XS→XL
 - feat: dark mode e ajuste de fonte (useEffect)
+- feat: checklist com useState + useNavigate
