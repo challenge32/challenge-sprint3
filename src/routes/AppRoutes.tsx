@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
 
 const Home = lazy(() => import("../pages/Home"));
 const Ajuda = lazy(() => import("../pages/Ajuda"));
@@ -15,7 +15,7 @@ const NotFound = lazy(() => import("../pages/NotFound"));
 
 export default function AppRoutes() {
   return (
-    <Suspense fallback={<div className="p-6" role="status" aria-live="polite">Carregando…</div>}>
+    <Suspense fallback={<p>Carregando...</p>}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ajuda" element={<Ajuda />} />
@@ -26,7 +26,7 @@ export default function AppRoutes() {
         <Route path="/integrantes" element={<Integrantes />} />
         <Route path="/integrantes/:rm" element={<MemberDetail />} />
         <Route path="/galeria" element={<Galeria />} />
-        <Route path="/preciso-ajuda" element={<AjudaDireta />} />} />
+        <Route path="/preciso-ajuda" element={<AjudaDireta />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

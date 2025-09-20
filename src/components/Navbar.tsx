@@ -13,7 +13,7 @@ export default function Navbar({ dark, setDark, fontScale, setFontScale }: Props
     <header className="navbar sticky top-0 z-10">
       <div className="container-main flex items-center justify-between gap-4 py-3">
         <div className="flex items-center gap-3">
-          <img src="/logo-hc.png" alt="Logo do Hospital das Clínicas" className="logo" />
+          <img src="/public/imgs/hc.png" alt="Logo do Hospital das Clínicas" className="logo" />
           <nav aria-label="Navegação principal" className="hidden md:flex items-center gap-2">
             <ul className="flex gap-2 m-0 p-0 list-none">
               <li><NavLink to="/" end className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Início</NavLink></li>

@@ -4,8 +4,8 @@ import Grid from "../components/ui/Grid";
 import MemberCard, { Member } from "../components/ui/MemberCard";
 
 const membros: Member[] = [
-  { nome: "Pedro Henrique Costa", rm: "559932", turma: "1TDSPV", github: "https://github.com/pedrocostah", linkedin: "https://www.linkedin.com/in/pedrocostahc/", foto: "/pedro.jpg" },
-  { nome: "Júlia Kauane Menezes", rm: "565568", turma: "1TDSPV", github: "https://github.com/juliamenezesf", linkedin: "https://www.linkedin.com/in/julia-menezesf/", foto: "/julia.jpg" },
+  { nome: "Pedro Henrique Costa", rm: "559932", turma: "1TDSPV", github: "https://github.com/pedrocostah", linkedin: "https://www.linkedin.com/in/pedrocostahc/", foto: "public/imgs/pedro.jpg" },
+  { nome: "Júlia Kauane Menezes", rm: "565568", turma: "1TDSPV", github: "https://github.com/juliamenezesf", linkedin: "https://www.linkedin.com/in/julia-menezesf/", foto: "public/imgs/julia.jfif" },
 ];
 
 export default function Integrantes() {

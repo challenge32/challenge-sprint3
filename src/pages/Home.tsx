@@ -14,7 +14,7 @@ export default function Home() {
             <a className="btn-ghost" href="https://portaldopaciente.hc.fm.usp.br/" target="_blank" rel="noreferrer">Acessar consulta</a>
           </div>
         </div>
-        <img src="/hero-hc.png" alt="Imagem do Hospital das Clínicas" className="hero-img" />
+        <img src="/public/imgs/hc-05.png" alt="Imagem do Hospital das Clínicas" className="hero-img" />
       </div>
 
       <section className="mt-6 grid gap-4">

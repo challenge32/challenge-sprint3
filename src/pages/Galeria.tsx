@@ -9,7 +9,7 @@ export default function Galeria() {
           <h2 className="font-semibold">Como fazer o primeiro acesso</h2>
           <figure>
             <video controls className="w-full rounded-xl">
-              <source src="/videos/primeiro-acesso.mp4" type="video/mp4" />
+              <source src="/public/videos/Cópia de PRIMEIRO ACESSO.mp4" type="video/mp4" />
               Seu navegador não suporta a reprodução de vídeos.
             </video>
             <figcaption>Tutorial sobre como fazer o primeiro acesso ao aplicativo.</figcaption>
@@ -19,7 +19,7 @@ export default function Galeria() {
           <h2 className="font-semibold">Como acessar consulta</h2>
           <figure>
             <video controls className="w-full rounded-xl">
-              <source src="/videos/acesso-portal.mp4" type="video/mp4" />
+              <source src="/public/videos/Cópia de Acesso ao Portal.mp4" type="video/mp4" />
               Seu navegador não suporta a reprodução de vídeos.
             </video>
             <figcaption>Explicação sobre como acessar a consulta no aplicativo.</figcaption>
