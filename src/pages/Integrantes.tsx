@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
+import Grid from "../components/ui/Grid";
+import MemberCard, { Member } from "../components/ui/MemberCard";
 
-const membros = [
+const membros: Member[] = [
   { nome: "Pedro Henrique Costa", rm: "559932", turma: "1TDSPV", github: "https://github.com/pedrocostah", linkedin: "https://www.linkedin.com/in/pedrocostahc/", foto: "/pedro.jpg" },
   { nome: "Júlia Kauane Menezes", rm: "565568", turma: "1TDSPV", github: "https://github.com/juliamenezesf", linkedin: "https://www.linkedin.com/in/julia-menezesf/", foto: "/julia.jpg" },
 ];
@@ -23,7 +25,7 @@ export default function Integrantes() {
             <Link to={`/integrantes/${m.rm}`} className="botao mt-2" aria-label={`Ver perfil de ${m.nome}`}>Ver perfil</Link>
           </article>
         ))}
-      </div>
+      </Grid>
     </section>
   );
 }

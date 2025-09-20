@@ -1,10 +1,11 @@
 import PageTitle from "../components/PageTitle";
+import Card from "../components/ui/Card";
 export default function Galeria() {
   return (
     <section className="galeria">
       <PageTitle title="Galeria de Vídeos Tutoriais" subtitle="Assista aos tutoriais e aprenda a usar o aplicativo de forma fácil e rápida." />
       <div className="grid-2">
-        <article className="card">
+        <Card>
           <h2 className="font-semibold">Como fazer o primeiro acesso</h2>
           <figure>
             <video controls className="w-full rounded-xl">
@@ -13,8 +14,8 @@ export default function Galeria() {
             </video>
             <figcaption>Tutorial sobre como fazer o primeiro acesso ao aplicativo.</figcaption>
           </figure>
-        </article>
-        <article className="card">
+        </Card>
+        <Card>
           <h2 className="font-semibold">Como acessar consulta</h2>
           <figure>
             <video controls className="w-full rounded-xl">
@@ -23,7 +24,7 @@ export default function Galeria() {
             </video>
             <figcaption>Explicação sobre como acessar a consulta no aplicativo.</figcaption>
           </figure>
-        </article>
+        </Card>
       </div>
 
       <section className="card mt-4">

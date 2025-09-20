@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import ChecklistItem from "../components/ui/ChecklistItem";
+import Button from "../components/ui/Button";
 import { useNavigate } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 
@@ -24,8 +26,8 @@ export default function Checklist() {
 
       <form aria-describedby="resultado" className="mt-3 space-y-2">
         {items.map((label, i) => (
-          <label key={i} className="flex items-center gap-2">
-            <input
+          <div key={i}>
+            {/* moved into ChecklistItem */} <input
               type="checkbox"
               checked={checked[i]}
               onChange={(e) => {
@@ -45,7 +47,7 @@ export default function Checklist() {
           type="button"
           disabled={!ready}
           onClick={() => navigate("/como-acessar")}
-          className={`botao mt-2 ${!ready ? "opacity-50 cursor-not-allowed" : ""}` }
+          className={`btn mt-2 ${!ready ? "opacity-50 cursor-not-allowed" : ""}` }
         >
           Ver como acessar a consulta
         </button>

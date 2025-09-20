@@ -1,5 +1,6 @@
 import PageTitle from "../components/PageTitle";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/ui/Button";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function Home() {
         <div>
           <PageTitle title="Saúde Digital no Hospital das Clínicas" subtitle="Facilitando o acesso à saúde para pacientes com baixa afinidade digital" />
           <div className="mt-4 flex gap-3">
-            <button className="btn" onClick={() => navigate('/galeria')} aria-label="Aprenda a acessar sua consulta">Aprender a acessar</button>
+            <Button onClick={() => navigate('/galeria')} aria-label="Aprenda a acessar sua consulta">Aprender a acessar</Button>
             <a className="btn-ghost" href="https://portaldopaciente.hc.fm.usp.br/" target="_blank" rel="noreferrer">Acessar consulta</a>
           </div>
         </div>

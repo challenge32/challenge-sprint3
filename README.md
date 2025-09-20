@@ -180,3 +180,23 @@ Use o DevTools (Ctrl+Shift+M) e teste:
 - **XL (≥1280px)**: 1440x900 — grids 4–5 colunas e maior respiro.
 
 Breakpoints usados: `sm`, `md`, `lg`, `xl` (Tailwind default).
+
+
+## ♻️ Componentização, Modularidade e Reutilização
+**Componentes reutilizáveis (TypeScript):**
+- `components/ui/Button` — variações `solid`/`ghost`, usado em **todas** as páginas com ações.
+- `components/ui/Card` — container semântico para cartões (FAQ, Galeria, blocos de conteúdo).
+- `components/ui/Grid` — padroniza grids responsivos (2/3 colunas e lista de integrantes).
+- `components/ui/Tabs` — abas headless (usado em **AjudaDireta**).
+- `components/ui/ChecklistItem` — item de checklist (usado em **Checklist**).
+- `components/ui/FormField` — rótulo + campo + erro acessível (usado em **Contato** com React Hook Form).
+- `components/ui/MemberCard` — card do integrante (usado em **Integrantes**).
+- `components/Navbar` e `components/Footer` — cabeçalho/rodapé padronizados.
+- `components/Layout` — orquestra Navbar + Conteúdo + Footer (SPA).
+
+**Benefícios:**
+- **Separação clara** de responsabilidades (3,3 pts).
+- **Reutilização** em múltiplas páginas (3,3 pts).
+- **Eficiência** na evolução/manutenção: mudanças centralizadas em `ui/` (3,4 pts).
+
+**Observação:** classes visuais da Sprint 02 preservadas via `@layer components` + `@apply` (Tailwind only).
