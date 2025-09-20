@@ -34,7 +34,7 @@ export default function Contato() {
           <textarea id="mensagem" rows={5} className="w-full rounded-xl border border-slate-300 px-3 py-2" {...register("mensagem", { required: "Escreva sua mensagem" })} />
         </FormField>
 
-        <button type="submit" className="botao" disabled={isSubmitting}>
+        <Button type="submit" className="btn" disabled={isSubmitting}>
           {isSubmitting ? "Enviando..." : "Enviar"}
         </Button>
 

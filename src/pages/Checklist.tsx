@@ -26,17 +26,12 @@ export default function Checklist() {
 
       <form aria-describedby="resultado" className="mt-3 space-y-2">
         {items.map((label, i) => (
-          <div key={i}>
-            {/* moved into ChecklistItem */} <input
-              type="checkbox"
-              checked={checked[i]}
-              onChange={(e) => {
-                const next = [...checked]; next[i] = e.target.checked; setChecked(next);
-              }}
-              className="h-5 w-5 accent-blue-600"
-            />
-            <span>{label}</span>
-          </label>
+          <ChecklistItem
+            key={i}
+            label={label}
+            checked={checked[i]}
+            onChange={(v) => { const next = [...checked]; next[i] = v; setChecked(next); }}
+          />
         ))}
         <div id="resultado" aria-live="polite" className={`mt-2 ${ready ? "text-green-700" : "text-red-700"}`}>
           {ready

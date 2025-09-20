@@ -12,7 +12,7 @@ export default function Integrantes() {
   return (
     <section className="integrantes">
       <PageTitle title="Quem Somos" />
-      <div className="membros">
+      <Grid variant="members">
         {membros.map((m) => (
           <article key={m.rm} className="membro">
             <img src={m.foto} alt={`Foto de ${m.nome}`} className="w-full rounded-xl" />
