@@ -20,9 +20,7 @@ export default function Navbar({ dark, setDark, fontScale, setFontScale }: Props
               <li><NavLink to="/ajuda" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Ajuda</NavLink></li>
               <li><NavLink to="/faq" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>FAQ</NavLink></li>
               <li><NavLink to="/contato" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Contato</NavLink></li>
-              <li><NavLink to="/integrantes" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Integrantes</NavLink></li>
-              <li><NavLink to="/sobre" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Sobre</NavLink></li>
-            </ul>
+              <li><NavLink to="/integrantes" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Integrantes</NavLink></li></ul>
           </nav>
         </div>
         <div className="flex items-center gap-2" role="group" aria-label="Ajustes de acessibilidade">
@@ -40,9 +38,7 @@ export default function Navbar({ dark, setDark, fontScale, setFontScale }: Props
               <li><NavLink to="/ajuda" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Ajuda</NavLink></li>
               <li><NavLink to="/faq" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>FAQ</NavLink></li>
               <li><NavLink to="/contato" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Contato</NavLink></li>
-              <li><NavLink to="/integrantes" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Integrantes</NavLink></li>
-              <li><NavLink to="/sobre" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Sobre</NavLink></li>
-            </ul>
+              <li><NavLink to="/integrantes" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Integrantes</NavLink></li></ul>
           </nav>
         </div>
       )}

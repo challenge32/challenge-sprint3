@@ -11,7 +11,6 @@ const Integrantes = lazy(() => import("../pages/Integrantes"));
 const MemberDetail = lazy(() => import("../pages/MemberDetail"));
 const Galeria = lazy(() => import("../pages/Galeria"));
 const AjudaDireta = lazy(() => import("../pages/AjudaDireta"));
-const Sobre = lazy(() => import("../pages/Sobre"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
 export default function AppRoutes() {
@@ -27,8 +26,7 @@ export default function AppRoutes() {
         <Route path="/integrantes" element={<Integrantes />} />
         <Route path="/integrantes/:rm" element={<MemberDetail />} />
         <Route path="/galeria" element={<Galeria />} />
-        <Route path="/preciso-ajuda" element={<AjudaDireta />} />
-        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/preciso-ajuda" element={<AjudaDireta />} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
