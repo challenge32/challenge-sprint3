@@ -169,3 +169,14 @@ tailwind.config.ts  postcss.config.js  vite.config.ts  tsconfig.json  package.js
 - O arquivo final já está pronto para envio no Portal do Aluno.
 
 // sprint03-marker
+
+
+### 📱 Como validar a Responsividade
+Use o DevTools (Ctrl+Shift+M) e teste:
+- **XS (mobile)**: 360x640 — menu hambúrguer, colunas 1x, mídia fluida.
+- **SM (≥640px)**: 640x800 — 2 colunas em várias seções.
+- **MD (≥768px)**: 768x1024 — hero em 2 colunas, grids 2–3 colunas.
+- **LG (≥1024px)**: 1024x768 — grids 3–4 colunas.
+- **XL (≥1280px)**: 1440x900 — grids 4–5 colunas e maior respiro.
+
+Breakpoints usados: `sm`, `md`, `lg`, `xl` (Tailwind default).
