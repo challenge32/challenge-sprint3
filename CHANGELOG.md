@@ -13,3 +13,4 @@
 - chore: README com critérios e estrutura
 - chore: scripts prepare:repo (win/unix)
 - refactor: mapeamento classes Sprint 02 → Tailwind
+- style: tokens utilitários .btn/.card/.hero
