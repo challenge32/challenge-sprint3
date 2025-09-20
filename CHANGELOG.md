@@ -7,3 +7,4 @@
 - feat: formulário Contato com react-hook-form
 - feat: acessibilidade (skip-link, aria, foco)
 - feat: responsividade Tailwind XS→XL
+- feat: dark mode e ajuste de fonte (useEffect)
