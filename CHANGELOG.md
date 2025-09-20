@@ -15,3 +15,4 @@
 - refactor: mapeamento classes Sprint 02 → Tailwind
 - style: tokens utilitários .btn/.card/.hero
 - docs: Contributing e Changelog
+- fix: pequenos ajustes de semântica e alt
