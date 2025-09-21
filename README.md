@@ -1,5 +1,3 @@
----
-
 # HC Saúde Digital — Sprint 03
 
 ## 📌 Descrição do Projeto
