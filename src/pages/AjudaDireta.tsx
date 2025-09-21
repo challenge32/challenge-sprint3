@@ -1,25 +1,17 @@
+// src/pages/AjudaDireta.tsx
 import PageTitle from "../components/PageTitle";
 import Tabs from "../components/ui/Tabs";
+
 export default function AjudaDireta() {
+  const tabs = [
+    { id: "portal", label: "Portal do Paciente", content: <p>Link e instruções rápidas do portal.</p> },
+    { id: "telefone", label: "Telefones úteis", content: <ul className="list-disc pl-6"><li>Central: (11) 0000-0000</li></ul> },
+    { id: "faq", label: "FAQ", content: <p>Veja dúvidas comuns na página FAQ.</p> },
+  ];
   return (
-    <section className="ajuda-direta">
-      <PageTitle title="Preciso de ajuda agora" />
-      <Tabs defaultId="contatos" tabs={[
-        { id: "contatos", label: "Contatos", content: (
-          <section>
-            <h2 className="font-semibold">Telefones e E-mail</h2>
-            <p><strong>Telefone:</strong> (11) 99999-9999</p>
-            <p><strong>Suporte Técnico:</strong> suporte@hcsaudedigital.com.br</p>
-          </section>
-        )},
-        { id: "bot", label: "Bot Virtual", content: (
-          <section>
-            <h2 className="font-semibold">Atendimento com Bot Virtual</h2>
-            <p>Você pode acessar nossa assistente virtual no Telegram:</p>
-            <p><a className="btn" href="https://t.me/Challenge1737_bot" target="_blank" rel="noreferrer">Abrir Assistente no Telegram</a></p>
-          </section>
-        )}
-      ]} />
+    <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 space-y-4">
+      <PageTitle title="Preciso de Ajuda" subtitle="Acesso rápido às principais informações" />
+      <Tabs tabs={tabs} defaultId="portal" />
     </section>
   );
 }
