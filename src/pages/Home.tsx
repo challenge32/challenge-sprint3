@@ -1,40 +1,47 @@
-import PageTitle from "../components/PageTitle";
+// src/pages/Home.tsx (ajuste de layout)
 import { useNavigate } from "react-router-dom";
-import Button from "../components/ui/Button";
 
 export default function Home() {
   const navigate = useNavigate();
+
   return (
-    <section className="home">
-      <div className="hero">
-        <div>
-          <PageTitle title="Saúde Digital no Hospital das Clínicas" subtitle="Facilitando o acesso à saúde para pacientes com baixa afinidade digital" />
-          <div className="mt-4 flex gap-3">
-            <Button onClick={() => navigate('/galeria')} aria-label="Aprenda a acessar sua consulta">Aprender a acessar</Button>
-            <a className="btn-ghost" href="https://portaldopaciente.hc.fm.usp.br/" target="_blank" rel="noreferrer">Acessar consulta</a>
+    <main className="min-h-[calc(100vh-3.5rem)] bg-white dark:bg-zinc-900">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-zinc-100">
+            Bem-vindo ao HC Saúde Digital
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-zinc-300">
+            Acompanhe informações essenciais, tire dúvidas e explore conteúdos de apoio.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={() => navigate("/galeria")}
+              className="inline-flex items-center justify-center rounded-md px-5 py-2.5 text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            >
+              Explorar Galeria
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/como-acessar")}
+              className="inline-flex items-center justify-center rounded-md px-5 py-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 dark:text-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            >
+              Como Acessar
+            </button>
           </div>
         </div>
-        <img src="/public/imgs/hc-05.png" alt="Imagem do Hospital das Clínicas" className="hero-img" />
-      </div>
 
-      <section className="mt-6 grid gap-4">
-        <article className="card">
-          <h2 className="text-xl font-semibold">Bem-vindo ao HC Saúde Digital</h2>
-          <p>
-            Este site foi criado para ajudar pessoas que têm dificuldade em usar celulares ou computadores a participarem
-            de consultas médicas por vídeo com mais facilidade.
-          </p>
-          <p>
-            Aqui você encontrará um passo a passo simples e visual, com explicações claras, imagens ilustrativas e até
-            instruções em áudio. Também disponibilizamos uma seção com dúvidas frequentes e uma área de contato.
-          </p>
-          <p>
-            Nosso objetivo é que ninguém perca uma consulta por não saber como acessar. A tecnologia deve aproximar as
-            pessoas da saúde, não afastá-las.
-          </p>
-        </article>
+       <div className="w-full max-w-xl justify-self-center lg:justify-self-end">
+  <img
+    src="/public/imgs/hc.png"
+    alt="Hospital das Clínicas"
+    className="w-full h-auto max-h-[360px] sm:max-h-[420px] lg:max-h-[460px] object-contain rounded-2xl shadow-sm"
+  />
+</div>
+
       </section>
-    </section>
+    </main>
   );
 }
-// sprint03-marker
