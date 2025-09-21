@@ -1,47 +1,42 @@
-import { NavLink } from "react-router-dom";
-import Button from "./ui/Button";
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-type Props = {
-  dark: boolean; setDark: (v: boolean) => void;
-  fontScale: number; setFontScale: (n: number) => void;
-};
+const links = [
+  { to: "/", label: "Início" },
+  { to: "/ajuda", label: "Ajuda" },
+  { to: "/como-acessar", label: "Como Acessar" },
+  { to: "/checklist", label: "Checklist" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/contato", label: "Contato" },
+  { to: "/integrantes", label: "Integrantes" },
+  { to: "/galeria", label: "Galeria" },
+  { to: "/preciso-ajuda", label: "Preciso de Ajuda" },
+];
 
-export default function Navbar({ dark, setDark, fontScale, setFontScale }: Props) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function Navbar() {
   return (
-    <header className="navbar sticky top-0 z-10">
-      <div className="container-main flex items-center justify-between gap-4 py-3">
-        <div className="flex items-center gap-3">
-          <img src="/public/imgs/hc.png" alt="Logo do Hospital das Clínicas" className="logo" />
-          <nav aria-label="Navegação principal" className="hidden md:flex items-center gap-2">
-            <ul className="flex gap-2 m-0 p-0 list-none">
-              <li><NavLink to="/" end className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Início</NavLink></li>
-              <li><NavLink to="/ajuda" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Ajuda</NavLink></li>
-              <li><NavLink to="/faq" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>FAQ</NavLink></li>
-              <li><NavLink to="/contato" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Contato</NavLink></li>
-              <li><NavLink to="/integrantes" className={({isActive}) => isActive ? "btn" : "btn-ghost"}>Integrantes</NavLink></li></ul>
-          </nav>
+    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200 dark:bg-zinc-900/80 dark:border-zinc-800">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Principal">
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 rounded-md">
+            <img src="/public/imgs/hc.png" alt="HC Saúde Digital" className="h-8 w-8 object-contain" width={32} height={32} />
+            <span className="font-semibold text-slate-900 dark:text-zinc-100">HC Saúde Digital</span>
+          </Link>
+
+         
+          <ul className="hidden lg:flex items-center gap-1">
+            {links.map((l) => (
+              <li key={l.to}>
+                <NavLink
+                  to={l.to}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="flex items-center gap-2" role="group" aria-label="Ajustes de acessibilidade">
-          <Button variant="ghost" onClick={() => setDark(!dark)} aria-pressed={dark}>{dark ? "Claro" : "Escuro"}</Button>
-          <Button variant="ghost" onClick={() => setFontScale(Math.max(0.875, fontScale - 0.125))} aria-label="Diminuir fonte">A-</Button>
-          <Button variant="ghost" onClick={() => setFontScale(Math.min(1.5, fontScale + 0.125))} aria-label="Aumentar fonte">A+</Button>
-          <Button variant="ghost" onClick={() => setMenuOpen(v => !v)} className="md:hidden" aria-expanded={menuOpen} aria-label="Abrir menu">Menu</Button>
-        </div>
-      </div>
-      {menuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950">
-          <nav aria-label="Menu móvel">
-            <ul className="container-main m-0 p-0 list-none grid gap-2">
-              <li><NavLink to="/" end className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Início</NavLink></li>
-              <li><NavLink to="/ajuda" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Ajuda</NavLink></li>
-              <li><NavLink to="/faq" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>FAQ</NavLink></li>
-              <li><NavLink to="/contato" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Contato</NavLink></li>
-              <li><NavLink to="/integrantes" className={({isActive}) => isActive ? "btn" : "btn-ghost"} onClick={() => setMenuOpen(false)}>Integrantes</NavLink></li></ul>
-          </nav>
-        </div>
-      )}
+      </nav>
     </header>
   );
 }
