@@ -1,24 +1,48 @@
 HC Saúde Digital — Sprint 03
+📌 Descrição do Projeto
 
-SPA em React + Vite + TypeScript + TailwindCSS
-Reestruturação das páginas da Sprint 02 com componentização, modularidade, responsividade (XS→XL), validação com React Hook Form, rotas estáticas e dinâmicas, e versionamento Git/GitHub.
+Aplicação SPA (Single Page Application) desenvolvida em React + Vite + TypeScript + TailwindCSS, como parte da Sprint 03.
+Nesta entrega, foi realizada a reestruturação das páginas da Sprint 02 com foco em:
 
-Conformidade: estilização 100% TailwindCSS; não utilizamos bibliotecas proibidas (Axios/Bootstrap/Carrossel/Accordion).
-Integrações: sem consumo de API nesta sprint, conforme orientações.
+Componentização e modularidade
+
+Responsividade (XS → XL)
+
+Validação com React Hook Form
+
+Rotas estáticas e dinâmicas
+
+Versionamento Git/GitHub (Git Flow)
+
+⚠️ Escopo da Sprint: não há consumo de API nesta etapa, conforme orientações.
+
+✅ Conformidade
+
+100% estilização com TailwindCSS
+
+Sem bibliotecas proibidas (Axios, Bootstrap, Carrossel, Accordion)
+
+SPA em React + Vite + TypeScript
+
+React Hook Form para formulários
+
+Rotas estáticas e dinâmicas com React Router 6
+
+Acessibilidade (A11y) e responsividade garantidas
 
 🔗 Links
 
-Repositório GitHub (organização): adicionar link
+Repositório GitHub (Organização): [Adicionar link]
 
-Vídeo no YouTube (≤ 3 min): adicionar link
+Vídeo de Apresentação (≤ 3 min): [Adicionar link]
 
-📦 Execução local
+📦 Execução Local
 npm install
 npm run dev
 
 
-Local: http://localhost:5173
- (ou próxima porta disponível)
+Acesse em: http://localhost:5173
+ (ou próxima porta disponível).
 
 🧭 Rotas da SPA
 Caminho	Página	Observações
@@ -26,139 +50,150 @@ Caminho	Página	Observações
 /ajuda	Ajuda	Atalhos para páginas de suporte
 /como-acessar	Como Acessar	Passo a passo
 /checklist	Checklist	Estado com useState / useMemo
-/faq	FAQ	Cards com perguntas/respostas
-/contato	Contato	React Hook Form + validações
+/faq	FAQ	Cards de perguntas e respostas
+/contato	Contato	Formulário com validações (React Hook Form)
 /integrantes	Integrantes	Lista de membros
 /integrantes/:rm	Member Detail	Rota dinâmica com useParams
-/galeria	Galeria	Mídias (imagens/vídeos)
-/preciso-ajuda	Ajuda Direta	Tabs (headless)
+/galeria	Galeria	Exibição de mídias (imagens/vídeos)
+/preciso-ajuda	Ajuda Direta	Tabs (headless, sem libs externas)
 *	404	Página não encontrada
 
 Observação: não há página “Sobre”, conforme solicitado.
 
 🧩 Componentização e Reuso
 
-components/ui/Button — variações "solid"/"ghost"
+UI Components
 
-components/ui/Card, components/ui/Grid
+Button (variações solid / ghost)
 
-components/ui/Tabs (abas sem libs externas)
+Card, Grid, Tabs
 
-components/ui/ChecklistItem, components/ui/FormField
+ChecklistItem, FAQItem, FormField, MemberCard
 
-components/ui/MemberCard
+Layout Components
 
-components/Navbar, components/Footer, components/Layout, components/PageTitle, components/ErrorBoundary
+Navbar, Footer, Layout, PageTitle, ErrorBoundary
 
-Benefícios: responsabilidades isoladas, reuso amplo e tipagem forte (TypeScript), facilitando manutenção e evolução.
+👉 Benefícios: responsabilidades isoladas, tipagem forte com TypeScript, reuso amplo e facilidade de manutenção/evolução.
 
-⚙️ Tecnologias
+⚙️ Tecnologias Utilizadas
 
-React 18, React Router 6, React Hook Form
+Frontend: React 18, Vite 5, TypeScript 5
 
-Vite 5, TypeScript 5
+Estilização: TailwindCSS 3
 
-TailwindCSS 3 (apenas Tailwind; sem Bootstrap/Axios/carrossel/accordion)
+Roteamento: React Router 6
 
-🧪 Hooks, Props e Rotas (rubrica)
+Formulários: React Hook Form
 
-useState: estados locais (p.ex. Checklist, feedback do Contato)
+Controle de versão: Git/GitHub (Git Flow)
 
-useEffect: persistência/localStorage e preferências de acessibilidade
+🧪 Hooks, Props e Rotas (Rubrica)
+
+useState: estados locais (ex.: checklist, feedback de contato)
+
+useEffect: persistência em localStorage + acessibilidade
 
 useNavigate: navegação programática (Home → Galeria; Checklist → Como Acessar)
 
 useParams: rotas dinâmicas (/integrantes/:rm)
 
-Props tipadas: interfaces/props em todos os componentes de components/ui
+Props Tipadas: interfaces em todos os componentes UI
 
-Rotas estáticas e dinâmicas: conforme tabela de rotas
+Rotas: estáticas e dinâmicas, conforme tabela
 
-🎨 Estilização e Responsividade (TailwindCSS)
+🎨 Estilização e Responsividade
 
-100% Tailwind (@layer components + utilitários nos JSX)
+100% TailwindCSS (@layer components + utilitários JSX)
 
-Breakpoints: sm, md, lg, xl — grids responsivos (Home, Galeria, Integrantes, FAQ)
+Breakpoints: sm, md, lg, xl
 
-Acessibilidade (A11y): foco visível, atributos aria-*, contraste adequado e semântica
+Acessibilidade (A11y): foco visível, atributos aria-*, contraste adequado e semântica HTML
 
-👥 Integrantes (exemplo — atualizar)
+👥 Integrantes
 
 Pedro Henrique Costa — RM: 559932 — Turma: 1TDSPV
 
 Júlia Kauane Menezes — RM: 565568 — Turma: 1TDSPV
 
-Outros integrantes…
-
 🗂️ Estrutura de Pastas
 .
 ├── public/
-│   ├── logo-hc.png
-│   ├── hero-hc.png
+│   ├── icons/
+│   ├── imgs/
+│   │   ├── hc-05.png
+│   │   ├── hc.png
+│   │   ├── julia.jiff
+│   │   └── pedro.jpg
 │   └── videos/
+│       ├── Cópia de Acesso ao Portal.mp4
+│       └── Cópia de PRIMEIRO ACESSO.mp4
 ├── src/
 │   ├── components/
 │   │   ├── ui/
 │   │   │   ├── Button.tsx
 │   │   │   ├── Card.tsx
-│   │   │   ├── Grid.tsx
-│   │   │   ├── Tabs.tsx
 │   │   │   ├── ChecklistItem.tsx
+│   │   │   ├── FAQItem.tsx
 │   │   │   ├── FormField.tsx
-│   │   │   └── MemberCard.tsx
-│   │   ├── Navbar.tsx
+│   │   │   ├── Grid.tsx
+│   │   │   ├── MemberCard.tsx
+│   │   │   └── Tabs.tsx
+│   │   ├── ErrorBoundary.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Layout.tsx
-│   │   ├── PageTitle.tsx
-│   │   └── ErrorBoundary.tsx
+│   │   ├── Navbar.tsx
+│   │   └── PageTitle.tsx
 │   ├── pages/
-│   │   ├── Home.tsx
 │   │   ├── Ajuda.tsx
-│   │   ├── ComoAcessar.tsx
+│   │   ├── AjudaDireta.tsx
 │   │   ├── Checklist.tsx
-│   │   ├── FAQ.tsx
+│   │   ├── ComoAcessar.tsx
 │   │   ├── Contato.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── Galeria.tsx
+│   │   ├── Home.tsx
 │   │   ├── Integrantes.tsx
 │   │   ├── MemberDetail.tsx
-│   │   ├── Galeria.tsx
-│   │   ├── AjudaDireta.tsx
 │   │   └── NotFound.tsx
 │   ├── routes/
-│   │   └── AppRoutes.tsx
-│   ├── App.tsx
+│   │   └── App.tsx
+│   ├── index.css
 │   ├── main.tsx
-│   └── index.css
+│   └── App.tsx
+├── CHANGELOG.md
+├── CONTRIBUTING.md
 ├── index.html
 ├── package.json
-├── tailwind.config.ts
+├── package-lock.json
 ├── postcss.config.js
+├── tailwind.config.ts
 ├── tsconfig.json
+├── vite.config.ts
 └── README.md
 
 🌿 Fluxo de Versionamento (Git Flow)
 
-Branches: main (produção), develop (integração), feature/*, release/*
+Branches:
 
-Commits por integrante: mínimo 5; projeto com ≥ 15 commits no total
+main → produção
 
-Pull Requests: base = develop utilizando Create a merge commit (sem squash/rebase), para preservar a contagem individual
+develop → integração
 
-✅ Conformidade com as Regras
+feature/* → novas features
 
- SPA React + Vite + TypeScript
+Commits:
 
- TailwindCSS somente (sem Bootstrap/Axios/carrosséis/accordions)
+Mínimo 5 por integrante
 
- Sem integração com API nesta sprint
+Projeto ≥ 15 commits totais
 
- React Hook Form para formulários (Contato)
+Pull Requests:
 
- Rotas estáticas e dinâmicas
+Base = develop
 
- Acessibilidade e Responsividade (XS→XL)
-
- Git/GitHub/Git Flow com commits por integrante
+Estrutura de merge: Create a merge commit (sem squash/rebase)
 
 🛡️ Licença
 
-Projeto acadêmico — uso educacional.
+Projeto acadêmico — uso exclusivamente educacional.
