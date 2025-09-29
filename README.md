@@ -160,6 +160,7 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │   │   ├── Integrantes.tsx
 │   │   ├── MemberDetail.tsx
 │   │   └── NotFound.tsx
+│   │   └── Sobre.tsx
 │   ├── routes/
 │   │   └── App.tsx
 │   ├── index.css
