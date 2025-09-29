@@ -141,11 +141,13 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │   │   │   ├── Grid.tsx
 │   │   │   ├── MemberCard.tsx
 │   │   │   └── Tabs.tsx
+│   │   ├── AcessibilityBar.tsx
 │   │   ├── ErrorBoundary.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Layout.tsx
 │   │   ├── Navbar.tsx
 │   │   └── PageTitle.tsx
+│   │   └── ReadPage.tsx
 │   ├── pages/
 │   │   ├── Ajuda.tsx
 │   │   ├── AjudaDireta.tsx
