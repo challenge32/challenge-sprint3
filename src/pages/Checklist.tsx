@@ -50,4 +50,3 @@ export default function Checklist() {
     </section>
   );
 }
-// sprint03-marker

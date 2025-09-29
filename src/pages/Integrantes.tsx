@@ -29,4 +29,4 @@ export default function Integrantes() {
     </section>
   );
 }
-// sprint03-marker
+
