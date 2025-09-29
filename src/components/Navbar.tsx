@@ -14,8 +14,8 @@ const links = [
   { to: "/faq", label: "FAQ" },
   { to: "/contato", label: "Contato" },
   { to: "/integrantes", label: "Integrantes" },
-  { to: "/galeria", label: "Galeria" },
   { to: "/preciso-ajuda", label: "Preciso de Ajuda" },
+  { to: "/sobre", label: "Sobre" },
 ];
 
 type Props = {
@@ -100,10 +100,13 @@ export default function Navbar({ fontScale, setFontScale, dark, setDark }: Props
         <div className="flex h-16 items-center justify-between">
           <Link
             to="/"
-            className="flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            className="flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 flex-shrink-0 whitespace-nowrap"
           >
             <img src="/imgs/hc.png" alt="HC Saúde Digital" className="h-8 w-8 object-contain" width={32} height={32} />
-            <span className="font-semibold text-slate-900 dark:text-zinc-100">HC Saúde Digital</span>
+            <span className="font-semibold text-slate-900 dark:text-zinc-100">
+              <span className="sm:hidden">HC</span>
+              <span className="hidden sm:inline">HC Saúde Digital</span>
+            </span>
           </Link>
           <div className="hidden lg:flex items-center gap-4">
             <ul className="flex items-center gap-1">
