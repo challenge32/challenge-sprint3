@@ -28,8 +28,8 @@ Nesta entrega, foi realizada a **reestruturação das páginas da Sprint 02** co
 
 ## 🔗 Links
 
-* **Repositório GitHub (Organização):** \[Adicionar link]
-* **Vídeo de Apresentação (≤ 3 min):** \[Adicionar link]
+* **Repositório GitHub (Organização):** https://github.com/challenge32
+* **Vídeo de Apresentação (≤ 3 min):** https://youtu.be/Yut9S5p3wyg
 
 ---
 
