@@ -187,11 +187,6 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
   * `develop` → integração
   * `feature/*` → novas features
 
-* **Commits:**
-
-  * Mínimo 5 por integrante
-  * Projeto ≥ 15 commits totais
-
 ---
 
 ## 🛡️ Licença
