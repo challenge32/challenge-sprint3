@@ -4,7 +4,8 @@ import Tabs from "../components/ui/Tabs";
 
 export default function AjudaDireta() {
   const tabs = [
-    { id: "portal", label: "Portal do Paciente", content: <p>Link e instruções rápidas do portal.</p> },
+    { id: "portal", label: "Portal do Paciente", content: <p><a href="https://portaldopaciente.hc.fm.usp.br/" target="_blank">Acesse o Portal do Paciente clicando aqui!</a></p> 
+ },
     { id: "telefone", label: "Telefones úteis", content: <ul className="list-disc pl-6"><li>Central: (11) 0000-0000</li></ul> },
     { id: "faq", label: "FAQ", content: <p>Veja dúvidas comuns na página FAQ.</p> },
   ];
