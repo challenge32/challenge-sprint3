@@ -11,6 +11,18 @@ Nesta entrega, foi realizada a **reestruturação das páginas da Sprint 02** co
 * **Rotas estáticas e dinâmicas**
 * **Versionamento Git/GitHub (Git Flow)**
 
+Nesta **Sprint**, ampliamos o escopo do projeto para atacar diretamente o problema de esquecimento e 
+desmotivação: 
+
+ Botões de Acessibilidade em Todas as Páginas: 
+* **Leitura em Voz Alta para deficientes visuais.**
+* **Zoom Progressivo para usuários com baixa visão.**
+* **Alto Contraste para portadores de daltonismo ou visão reduzida.**
+* **Fonte Ampliada para maior legibilidade em dispositivos móveis e desktops.**
+* **Design Acessível e Consistente: mantendo as cores (azul, azul-escuro, branco e verde-água).**
+* **Integração Transparente: aproveitamos o front-end modular e o back-end planejado no Sprint 2, 
+garantindo que o esforço feito agora seja reaproveitado para o Login Seguro do Sprint 4.**
+
 ⚠️ **Escopo da Sprint:** não há consumo de API nesta etapa, conforme orientações.
 
 ---
