@@ -206,11 +206,11 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 
 Projeto acadêmico — uso exclusivamente **educacional**.
 
-##Link Repositório Github:
+* **Link Repositório Github:**
 
 https://github.com/challenge32/challenge-sprint3
 
-#Link convite Organizations Github:
+* **Link convite Organizations Github:**
 
 https://github.com/challenge32/challenge-sprint3/invitations
 
