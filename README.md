@@ -11,6 +11,18 @@ Nesta entrega, foi realizada a **reestruturação das páginas da Sprint 02** co
 * **Rotas estáticas e dinâmicas**
 * **Versionamento Git/GitHub (Git Flow)**
 
+Nesta **Sprint**, ampliamos o escopo do projeto para atacar diretamente o problema de esquecimento e 
+desmotivação: 
+
+ Botões de Acessibilidade em Todas as Páginas: 
+* **Leitura em Voz Alta para deficientes visuais.**
+* **Zoom Progressivo para usuários com baixa visão.**
+* **Alto Contraste para portadores de daltonismo ou visão reduzida.**
+* **Fonte Ampliada para maior legibilidade em dispositivos móveis e desktops.**
+* **Design Acessível e Consistente: mantendo as cores (azul, azul-escuro, branco e verde-água).**
+* **Integração Transparente: aproveitamos o front-end modular e o back-end planejado no Sprint 2, 
+garantindo que o esforço feito agora seja reaproveitado para o Login Seguro do Sprint 4.**
+
 ⚠️ **Escopo da Sprint:** não há consumo de API nesta etapa, conforme orientações.
 
 ---
@@ -28,8 +40,8 @@ Nesta entrega, foi realizada a **reestruturação das páginas da Sprint 02** co
 
 ## 🔗 Links
 
-* **Repositório GitHub (Organização):** \[Adicionar link]
-* **Vídeo de Apresentação (≤ 3 min):** \[Adicionar link]
+* **Repositório GitHub (Organização):** https://github.com/challenge32
+* **Vídeo de Apresentação (≤ 3 min):** https://youtu.be/Yut9S5p3wyg
 
 ---
 
@@ -141,11 +153,13 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │   │   │   ├── Grid.tsx
 │   │   │   ├── MemberCard.tsx
 │   │   │   └── Tabs.tsx
+│   │   ├── AcessibilityBar.tsx
 │   │   ├── ErrorBoundary.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Layout.tsx
 │   │   ├── Navbar.tsx
 │   │   └── PageTitle.tsx
+│   │   └── ReadPage.tsx
 │   ├── pages/
 │   │   ├── Ajuda.tsx
 │   │   ├── AjudaDireta.tsx
@@ -158,6 +172,7 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │   │   ├── Integrantes.tsx
 │   │   ├── MemberDetail.tsx
 │   │   └── NotFound.tsx
+│   │   └── Sobre.tsx
 │   ├── routes/
 │   │   └── App.tsx
 │   ├── index.css
@@ -185,15 +200,19 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
   * `develop` → integração
   * `feature/*` → novas features
 
-* **Commits:**
-
-  * Mínimo 5 por integrante
-  * Projeto ≥ 15 commits totais
-
 ---
 
 ## 🛡️ Licença
 
 Projeto acadêmico — uso exclusivamente **educacional**.
 
+* **Link Repositório Github:**
+
+https://github.com/challenge32/challenge-sprint3
+
+* **Link convite Organizations Github:**
+
+https://github.com/challenge32/challenge-sprint3/invitations
+
+© 2025 - FIAP | Hospital das Clínicas | Projeto Saúde Digital
 ---
