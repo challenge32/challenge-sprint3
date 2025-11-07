@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "prepare:repo:win": "powershell -ExecutionPolicy Bypass -File ./scripts/prepare-repo.ps1",
+    "prepare:repo:win": "powershell -ExecutionPolicy Bypass -File ./scripts/prepare-repo.sh",
     "prepare:repo:unix": "bash ./scripts/prepare-repo.sh"
   },
   "dependencies": {
@@ -26,5 +26,9 @@
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
     "vite": "^5.4.3"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
+
