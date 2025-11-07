@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
+
+// Base da API vem do .env (Vite exige prefixo VITE_)
+const API_BASE = (import.meta as any).env?.VITE_API_URL || "http://localhost:8080";
+const ENDPOINT = `https://java-sprint4-jjbu.onrender.com/api/solicitacoes`;
 
 export default function ContactForm() {
   const [nome, setNome] = useState("");
@@ -6,7 +10,7 @@ export default function ContactForm() {
   const [mensagem, setMensagem] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!nome.trim() || !mensagem.trim()) {
@@ -24,21 +28,24 @@ export default function ContactForm() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:8080/api/solicitacoes", {
+      const response = await fetch(ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
+        // tenta extrair detalhes do erro
         let details = "";
         try {
           const err = await response.json();
-          details = err?.details || JSON.stringify(err);
-        } catch (_) {
-          details = `Status HTTP: ${response.status}`;
+          details = err?.message || err?.details || JSON.stringify(err);
+        } catch {
+          const text = await response.text().catch(() => "");
+          details = text || `Status HTTP: ${response.status}`;
         }
         alert("Erro ao enviar solicitação: " + details);
         return;
@@ -50,7 +57,9 @@ export default function ContactForm() {
       setMensagem("");
     } catch (error) {
       console.error(error);
-      alert("Erro de conexão com o servidor. Verifique se a API está rodando.");
+      alert(
+        "Erro de conexão com o servidor. Verifique se a API está acessível."
+      );
     } finally {
       setLoading(false);
     }
@@ -91,7 +100,7 @@ export default function ContactForm() {
         <textarea
           className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           rows={4}
-          placeholder="Descreva com o máximo de detalhes o problema que está tendo para acessar a consulta..."
+          placeholder="Descreva com o máximo de detalhes o problema…"
           value={mensagem}
           onChange={(e) => setMensagem(e.target.value)}
         />
