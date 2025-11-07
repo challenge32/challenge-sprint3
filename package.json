@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "typecheck": "node ./node_modules/typescript/bin/tsc --noEmit",
     "prepare:repo:win": "powershell -ExecutionPolicy Bypass -File ./scripts/prepare-repo.sh",
     "prepare:repo:unix": "bash ./scripts/prepare-repo.sh"
   },
@@ -31,4 +32,3 @@
     "node": "20.x"
   }
 }
-
