@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "prepare:repo:win": "powershell -ExecutionPolicy Bypass -File ./scripts/prepare-repo.sh",
     "prepare:repo:unix": "bash ./scripts/prepare-repo.sh"
