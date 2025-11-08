@@ -1,4 +1,3 @@
-// src/pages/Home.tsx (ajuste de layout)
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -33,14 +32,20 @@ export default function Home() {
           </div>
         </div>
 
-       <div className="w-full max-w-xl justify-self-center lg:justify-self-end">
-  <img
-    src="/public/imgs/hc.png"
-    alt="Hospital das Clínicas"
-    className="w-full h-auto max-h-[360px] sm:max-h-[420px] lg:max-h-[460px] object-contain rounded-2xl shadow-sm"
-  />
-</div>
-
+        <div className="w-full max-w-xl justify-self-center lg:justify-self-end">
+          <img
+            src="/imgs/hc.png" 
+            alt="Hospital das Clínicas"
+            className="w-full h-auto max-h-[360px] sm:max-h-[420px] lg:max-h-[460px] object-contain rounded-2xl shadow-sm"
+            width={800}
+            height={460}
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = "/icons/hc-fallback.png"; // 
+            }}
+          />
+        </div>
       </section>
     </main>
   );
