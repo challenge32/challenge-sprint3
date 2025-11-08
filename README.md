@@ -42,6 +42,7 @@ garantindo que o esforço feito agora seja reaproveitado para o Login Seguro do 
 
 * **Repositório GitHub (Organização):** https://github.com/challenge32
 * **Vídeo de Apresentação (≤ 3 min):** https://youtu.be/Yut9S5p3wyg
+*  **Link Deploy no Vercel** https://challenge-sprint4-s4bm.vercel.app/
 
 ---
 
