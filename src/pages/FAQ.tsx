@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import FAQItem from "../components/ui/FAQItem";
 import PageTitle from "../components/PageTitle";
+import { getFaqs, createFaq, deleteFaq, type FAQ, API_BASE } from "../api/faq";
 
-type FAQ = { id: number; pergunta: string; resposta: string };
-
-const API = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:5000";
-
-// ✅ FAQs oficiais (fixas – não sofrem CRUD)
+// FAQs oficiais (fixas)
 const faqOficiais = [
   { q: "Como marcar consulta?", a: "Acesse 'Como Acessar' e siga o passo a passo do Portal do Paciente." },
   { q: "Preciso de cadastro?", a: "Sim. Cadastre uma senha com CPF do paciente e um contato válido." },
@@ -14,24 +11,25 @@ const faqOficiais = [
 ];
 
 export default function FAQ() {
-  const [faqs, setFaqs] = useState<FAQ[]>([]); // contribuições da comunidade (API)
+  const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [okMsg, setOkMsg] = useState<string | null>(null);
 
-  // form (criar contribuição)
   const [pergunta, setPergunta] = useState("");
   const [resposta, setResposta] = useState("");
 
   async function load() {
     setLoading(true);
     setErr(null);
+    setOkMsg(null);
     try {
-      const res = await fetch(`${API}/api/faqs`);
-      if (!res.ok) throw new Error("Falha ao carregar FAQs");
-      const data: FAQ[] = await res.json();
-      setFaqs(data);
+      const data = await getFaqs();
+      setFaqs(Array.isArray(data) ? data : []);
     } catch (e: any) {
       setErr(e.message || "Erro ao buscar FAQs");
+      setFaqs([]);
     } finally {
       setLoading(false);
     }
@@ -41,47 +39,66 @@ export default function FAQ() {
     load();
   }, []);
 
-  async function criarFaq() {
-    if (!pergunta || !resposta) return;
+  async function criar() {
+    const p = pergunta.trim();
+    const r = resposta.trim();
+    if (!p || !r || saving) return;
     setErr(null);
+    setOkMsg(null);
+    setSaving(true);
     try {
-      const res = await fetch(`${API}/api/faqs`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pergunta, resposta }),
-      });
-      if (!res.ok) throw new Error("Falha ao enviar contribuição");
-      const nova: FAQ = await res.json();
+      const nova = await createFaq(p, r);
       setFaqs((prev) => [...prev, nova]);
       setPergunta("");
       setResposta("");
+      setOkMsg("Contribuição enviada com sucesso!");
     } catch (e: any) {
       setErr(e.message || "Erro ao enviar contribuição");
+    } finally {
+      setSaving(false);
     }
   }
 
-  async function removerFaq(id: number) {
+  async function remover(id: number) {
     setErr(null);
+    setOkMsg(null);
+    const backup = faqs;
+    setFaqs((prev) => prev.filter((f) => f.id !== id)); // otimista
     try {
-      const res = await fetch(`${API}/api/faqs/${id}`, { method: "DELETE" });
-      if (!res.ok) throw new Error("Falha ao excluir contribuição");
-      setFaqs((prev) => prev.filter((f) => f.id !== id));
+      await deleteFaq(id);
+      setOkMsg("Contribuição excluída.");
     } catch (e: any) {
       setErr(e.message || "Erro ao excluir contribuição");
+      setFaqs(backup);
     }
   }
+
+  const canSubmit = pergunta.trim() && resposta.trim() && !saving;
 
   return (
     <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       <PageTitle title="FAQ" subtitle="Perguntas frequentes" />
 
-      {/* 🔹 Bloco de contribuição (CRUD da API) */}
+      {/* Contribuição (CRUD da API) */}
       <div className="rounded-xl border p-4 space-y-3">
-        <h2 className="text-lg font-semibold">Contribua para nosso site</h2>
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="text-lg font-semibold">Contribua para nosso site</h2>
+          <button
+            onClick={load}
+            className="text-sm rounded border px-3 py-1 hover:bg-gray-50"
+            disabled={loading}
+            title="Recarregar contribuições"
+          >
+            {loading ? "Atualizando…" : "Recarregar"}
+          </button>
+        </div>
         <p className="text-sm text-gray-600">
           Envie uma pergunta e resposta que possa ajudar outros usuários. As contribuições aparecem na seção “Perguntas da comunidade”.
         </p>
+
         {err && <p className="text-red-600">{err}</p>}
+        {okMsg && <p className="text-green-600">{okMsg}</p>}
+
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-3 items-end">
           <input
             className="border rounded p-2"
@@ -96,15 +113,18 @@ export default function FAQ() {
             onChange={(e) => setResposta(e.target.value)}
           />
           <button
-            className="bg-blue-600 text-white rounded px-4 py-2"
-            onClick={criarFaq}
+            className={`rounded px-4 py-2 text-white ${
+              canSubmit ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
+            }`}
+            onClick={criar}
+            disabled={!canSubmit}
           >
-            Enviar
+            {saving ? "Enviando…" : "Enviar"}
           </button>
         </div>
       </div>
 
-      {/* 🔹 FAQs oficiais (fixas) */}
+      {/* FAQs oficiais */}
       <div className="space-y-3">
         <h2 className="text-lg font-semibold">Perguntas frequentes (oficiais)</h2>
         {faqOficiais.map((f, i) => (
@@ -112,20 +132,25 @@ export default function FAQ() {
         ))}
       </div>
 
-      {/* 🔹 Contribuições (vindas do back) */}
+      {/* Contribuições (API) */}
       <div className="space-y-3">
-        <h2 className="text-lg font-semibold">Perguntas da comunidade</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">
+            Perguntas da comunidade {(!loading && faqs.length > 0) ? `(${faqs.length})` : ""}
+          </h2>
+        </div>
+
         {loading && <p className="opacity-70">Carregando…</p>}
         {!loading && faqs.length === 0 && (
           <p className="opacity-70">Ainda não há contribuições.</p>
         )}
+
         {faqs.map((f) => (
           <div key={f.id} className="relative">
             <FAQItem question={f.pergunta} answer={f.resposta} defaultOpen={false} />
-            {/* delete apenas nas contribuições */}
             <button
               className="absolute top-2 right-2 text-sm text-red-600 hover:underline"
-              onClick={() => removerFaq(f.id)}
+              onClick={() => remover(f.id)}
               title="Excluir contribuição"
             >
               excluir
