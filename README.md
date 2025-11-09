@@ -1,4 +1,4 @@
-# HC Saúde Digital — Sprint 03
+# HC Saúde Digital — Sprint 04
 
 ## 📌 Descrição do Projeto
 
@@ -7,10 +7,10 @@
 Projeto desenvolvido durante a **Sprint 4** da disciplina **Front-End Design Engineering** do curso de **Análise e Desenvolvimento de Sistemas – FIAP**.
 
 A aplicação **Saúde Digital** visa auxiliar **pacientes com dificuldades tecnológicas** a acessarem **suporte técnico** e **consultas médicas online**.  
-O projeto foi dividido em **duas partes integradas**:
+O projeto foi dividido em **duas partes integradas** e a API foi direcionada a aba **Preciso de ajuda** em que o usuário tem acesso a um formulário de contato direto com a plataforma, com isso fizemos a seguinte integração:
 - **Back-end (API Java no Render)**  
 - **Front-end (React + Vite + TypeScript no Vercel)**
-- **Banco de dados (Oracle SQL Developer**
+- **Banco de dados (Oracle SQL Developer)**
 
 ---
 
