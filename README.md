@@ -188,7 +188,7 @@ npm run build
 
 ## 🎥 Demonstração em Vídeo
 
-🔗 [Assista à apresentação do projeto]([https://youtu.be/](https://www.youtube.com/watch?v=lf-FotaPpOQ)
+🔗 https://www.youtube.com/watch?v=lf-FotaPpOQ
 
 ---
 
@@ -283,7 +283,9 @@ Projeto acadêmico — uso exclusivamente **educacional**.
 
 * **Link Repositório Github:**
 
-https://github.com/challenge32/challenge-sprint3
+[https://github.com/challenge32/challenge-sprint3](https://github.com/challenge32/challenge-sprint3?tab=readme-ov-file)
+
+https://github.com/challenge32/challenge-sprint3?tab=readme-ov-file
 
 * **Link convite Organizations Github:**
 
