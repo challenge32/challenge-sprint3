@@ -2,81 +2,122 @@
 
 ## 📌 Descrição do Projeto
 
-Aplicação **SPA (Single Page Application)** desenvolvida em **React + Vite + TypeScript + TailwindCSS**, como parte da **Sprint 03**.
-Nesta entrega, foi realizada a **reestruturação das páginas da Sprint 02** com foco em:
+# 🩺 Saúde Digital – Sprint 4 (FIAP)
 
-* **Componentização e modularidade**
-* **Responsividade (XS → XL)**
-* **Validação com React Hook Form**
-* **Rotas estáticas e dinâmicas**
-* **Versionamento Git/GitHub (Git Flow)**
+Projeto desenvolvido durante a **Sprint 4** da disciplina **Front-End Design Engineering** do curso de **Análise e Desenvolvimento de Sistemas – FIAP**.
 
-Nesta **Sprint**, ampliamos o escopo do projeto para atacar diretamente o problema de esquecimento e 
-desmotivação: 
-
- Botões de Acessibilidade em Todas as Páginas: 
-* **Leitura em Voz Alta para deficientes visuais.**
-* **Zoom Progressivo para usuários com baixa visão.**
-* **Alto Contraste para portadores de daltonismo ou visão reduzida.**
-* **Fonte Ampliada para maior legibilidade em dispositivos móveis e desktops.**
-* **Design Acessível e Consistente: mantendo as cores (azul, azul-escuro, branco e verde-água).**
-* **Integração Transparente: aproveitamos o front-end modular e o back-end planejado no Sprint 2, 
-garantindo que o esforço feito agora seja reaproveitado para o Login Seguro do Sprint 4.**
-
-⚠️ **Escopo da Sprint:** não há consumo de API nesta etapa, conforme orientações.
+A aplicação **Saúde Digital** visa auxiliar **pacientes com dificuldades tecnológicas** a acessarem **suporte técnico** e **consultas médicas online**.  
+O projeto foi dividido em **duas partes integradas**:
+- **Back-end (API Java no Render)**  
+- **Front-end (React + Vite + TypeScript no Vercel)**
+- **Banco de dados (Oracle SQL Developer**
 
 ---
 
-## ✅ Conformidade
+## 🚀 Deploys Públicos
 
-* 100% estilização com **TailwindCSS**
-* Sem bibliotecas proibidas (**Axios, Bootstrap, Carrossel, Accordion**)
-* SPA em **React + Vite + TypeScript**
-* **React Hook Form** para formulários
-* Rotas estáticas e dinâmicas com React Router 6
-* **Acessibilidade (A11y)** e **responsividade** garantidas
+- **Front-end (Vercel):**  
+  🔗 [https://challenge-sprint4-s4bm.vercel.app](https://challenge-sprint4-s4bm.vercel.app)
 
----
+- **Back-end (Render):**  
+  🔗 [https://java-sprint4-jjbu.onrender.com/api/solicitacoes](https://java-sprint4-jjbu.onrender.com/api/solicitacoes)
 
-## 🔗 Links
-
-* **Repositório GitHub (Organização):** https://github.com/challenge32
-* **Vídeo de Apresentação (≤ 3 min):** https://youtu.be/Yut9S5p3wyg
-*  **Link Deploy no Vercel** https://challenge-sprint4-s4bm.vercel.app/
+> O front consome diretamente a API hospedada no Render.
 
 ---
 
-## 📦 Execução Local
+## 🧩 Arquitetura da Solução
 
-```bash
-npm install
-npm run dev
+```mermaid
+flowchart LR
+A[Usuário no Navegador - Vercel] -->|Fetch API| B[Front React + Vite]
+B -->|Axios/Fetch| C[(Render - API Java)]
+C -->|JDBC| D[(Banco de Dados Oracle - FIAP)]
 ```
 
-Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta disponível).
+- **Front-end:** Interface web responsiva para registrar e visualizar solicitações.
+- **Back-end:** API REST em Java 21 com Maven e Docker, hospedada no Render.
+- **Banco de dados:** Oracle Cloud (FIAP), armazenando as solicitações de suporte.
 
 ---
 
-## 🧭 Rotas da SPA
+## ⚙️ Tecnologias Utilizadas
 
-| Caminho            | Página        | Observações                                 |
-| ------------------ | ------------- | ------------------------------------------- |
-| `/`                | Home          |                                             |
-| `/ajuda`           | Ajuda         | Atalhos para páginas de suporte             |
-| `/como-acessar`    | Como Acessar  | Passo a passo                               |
-| `/checklist`       | Checklist     | Estado com useState / useMemo               |
-| `/faq`             | FAQ           | Cards de perguntas e respostas              |
-| `/contato`         | Contato       | Formulário com validações (React Hook Form) |
-| `/integrantes`     | Integrantes   | Lista de membros                            |
-| `/integrantes/:rm` | Member Detail | Rota dinâmica com `useParams`               |
-| `/galeria`         | Galeria       | Exibição de mídias (imagens/vídeos)         |
-| `/preciso-ajuda`   | Ajuda Direta  | Tabs (headless, sem libs externas)          |
-| `*`                | 404           | Página não encontrada                       |
+### **Front-end**
+- React + Vite + TypeScript  
+- TailwindCSS (estilização 100%)  
+- React Router DOM  
+- Fetch API para integração  
+- Responsividade (breakpoints `sm`, `md`, `lg`, `xl`)  
+- Acessibilidade (contraste, legibilidade, botões grandes)
 
-> **Observação:** não há página “Sobre”, conforme solicitado.
+### **Back-end**
+- Java 21  
+- Maven  
+- Oracle JDBC (ojdbc11)  
+- HTTP Server nativo (`com.sun.net.httpserver.HttpServer`)  
+- Docker + Render (deploy)  
+- Integração com Oracle FIAP  
+- Suporte a variáveis de ambiente (`DB_USER`, `DB_PASS`)
 
 ---
 
+## 🧠 Funcionalidades
+
+### 🩺 **No Front-end**
+| Tela | Funcionalidade | Método HTTP |
+|------|----------------|-------------|
+| `/preciso-ajuda` | Exibir e cadastrar solicitações de suporte | `GET` / `POST` |
+| `/gerenciar` | Atualizar status das solicitações | `PUT` |
+| `/admin` | Excluir solicitações | `DELETE` |
+| `/` | Página inicial e informações do projeto | — |
+
+### ⚙️ **Na API Java**
+| Endpoint | Descrição | Método |
+|-----------|------------|---------|
+| `/api/solicitacoes` | Lista todas as solicitações | `GET` |
+| `/api/solicitacoes/{id}` | Busca por ID | `GET` |
+| `/api/solicitacoes` | Cria nova solicitação | `POST` |
+| `/api/solicitacoes/{id}` | Atualiza status | `PUT` |
+| `/api/solicitacoes/{id}` | Exclui solicitação | `DELETE` |
+| `/api/solicitacoes/abertas` | Lista apenas as em andamento | `GET` |
+
+---
+
+## 🔄 Integração Front ↔ Back
+
+O arquivo `.env` define o endpoint da API Java:
+
+```bash
+VITE_API_URL_JAVA=https://java-sprint4-jjbu.onrender.com
+```
+
+No código React:
+```ts
+const apiUrl = import.meta.env.VITE_API_URL_JAVA;
+
+fetch(`${apiUrl}/api/solicitacoes`)
+  .then(res => res.json())
+  .then(data => setSolicitacoes(data))
+  .catch(() => alert("Erro ao conectar com a API Java"));
+```
+
+### 🧱 Tratamento de Erros
+- Se a API estiver fora do ar, uma mensagem amigável é exibida.  
+- Os botões “Atualizar Status” e “Excluir” retornam feedback visual imediato.  
+- A página `/preciso-ajuda` continua funcional mesmo sem resposta do servidor (modo fallback).
+
+---
+
+### 🧱 Deploy no Render
+1. Criação do serviço via **Dockerfile**.  
+2. Configuração de variáveis de ambiente.  
+3. Porta exposta: **8080**.  
+4. Teste de endpoint:  
+   - https://java-sprint4-jjbu.onrender.com/api/solicitacoes ✅  
+
+---
+---
 ## 🧩 Componentização e Reuso
 
 * **UI Components**
@@ -122,6 +163,35 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 
 ---
 
+## 🧰 Scripts úteis
+
+```bash
+# Instalar dependências
+npm install
+
+# Rodar localmente
+npm run dev
+
+# Build de produção
+npm run build
+```
+
+---
+
+## 🧪 Testes e Validações
+
+- Todos os endpoints da API testados via **Postman** e **browser**.  
+- Teste de deploy e fetch cross-domain realizado com sucesso no **Vercel + Render**.  
+- Verificação de resposta JSON (200, 201, 404, 500) e CORS liberado.
+
+---
+
+## 🎥 Demonstração em Vídeo
+
+🔗 [Assista à apresentação do projeto]([https://youtu.be/](https://www.youtube.com/watch?v=lf-FotaPpOQ)
+
+---
+
 ## 👥 Integrantes
 
 * Pedro Henrique Costa — RM: 559932 — Turma: 1TDSPV
@@ -144,6 +214,8 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │       ├── Cópia de Acesso ao Portal.mp4
 │       └── Cópia de PRIMEIRO ACESSO.mp4
 ├── src/
+│   ├── api/
+│   │   ├── solicitacoes.ts
 │   ├── components/
 │   │   ├── ui/
 │   │   │   ├── Button.tsx
@@ -155,6 +227,7 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │   │   │   ├── MemberCard.tsx
 │   │   │   └── Tabs.tsx
 │   │   ├── AcessibilityBar.tsx
+│   │   ├── ContactForm.tsx
 │   │   ├── ErrorBoundary.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Layout.tsx
@@ -175,6 +248,7 @@ Acesse em: [http://localhost:5173](http://localhost:5173) (ou próxima porta dis
 │   │   └── NotFound.tsx
 │   │   └── Sobre.tsx
 │   ├── routes/
+│   │   ├── AppRoutes.tsx
 │   │   └── App.tsx
 │   ├── index.css
 │   ├── main.tsx
